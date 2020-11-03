@@ -5,16 +5,14 @@ sum_list = 0
 def avg_temp(sum_list):
     with open('temps.txt') as file_object:
         line_list = file_object.readlines()
-    list_length = len(line_list)
-    for i in range(1, list_length):
-        line_list[i] = int(line_list[i])
-
-    for i in range(1, list_length):
-        line_list[i] = int(line_list[i])
-        sum_list = sum_list + int(line_list[i])
-        avg = sum_list/list_length
-
-    return avg
+        list_length = len(line_list) - 1
+        for i in range(list_length):
+            list_length = int(list_length)
+        for i in range(1, len(line_list)):
+            sum_list = sum_list + int(line_list[i])
+            avg = sum_list/list_length
+            real_avg = round(avg, 2)
+    return real_avg
 
 
 if __name__ == '__main__':
